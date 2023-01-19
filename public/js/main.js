@@ -1,4 +1,3 @@
-
 //EXO 1
 function calculateSum() {
     let input1 = document.getElementsByTagName('input')[0];
@@ -96,123 +95,71 @@ operatorButtons.forEach(function(btn) {
 
     document.getElementById("equalButton").addEventListener("click", calculate3);
 
+    //exo4
+    let input1 = document.querySelectorAll('input')[6]
+    let input2 = document.querySelectorAll('input')[7]
+    let divB = document.getElementById('numbersExo4')
+    let divOp = document.getElementById('operatorsExo4')
 
+    let operator = false
+    divB.addEventListener("click", (e)=>{
+        if(operator == false){
+input1.value += e.target.textContent.trim()
+        }
+        else{
+            input2.value += e.target.textContent.trim()
+        }
 
+    })
 
+    divOp.addEventListener("click", (e) =>{
+        
+        switch (e.target.children[0].className) {
+            case "fas fa-plus":
+                document.querySelector('#exo-4 span i').setAttribute('class', 'fas fa-plus')
+                operator = true 
+                break;
+                case "fas fa-minus":
+                    document.querySelector('#exo-4 span i').setAttribute('class', 'fas fa-minus')
+                    operator = true 
+                    break;
 
+                    case "fas fa-times":
+                        document.querySelector('#exo-4 span i').setAttribute('class', 'fas fa-times')
+                        operator = true 
+                        break;
 
-
-
-
-//       </div>
-//       <!-- /.box-body -->
-//     </div>
-//     <div id="exo-3" class="box box-info">
-//       <div class="box-header with-border">
-//         <h3 class="box-title">3. Même chose qu'au dessus mais on change les opérateurs en clickant sur les boutons.</h3>
-//       </div>
-//       <!-- /.box-header -->
-//       <div id="operatorsExo3" class="box-body">
-//         <input type="text" class="form-control">
-//         <span>
-//           <i class="fas fa-plus"></i>
-//         </span>
-//         <input type="text" class="form-control">
-//         <button class="btn">
-//           <i class="fas fa-equals"></i>
-//         </button>
-//         <span id="response3" class="ml-2">?</span>
-//         <br>
-//         <button class="m-1 btn">
-//           <i class="fas fa-plus"></i>
-//         </button>
-//         <button class="m-1 btn">
-//           <i class="fas fa-minus"></i>
-//         </button>
-//         <br>
-//         <button class="m-1 btn">
-//           <i class="fas fa-times"></i>
-//         </button>
-//         <button class="m-1 btn">
-//           <i class="fas fa-divide"></i>
-//         </button>
-//       </div>
-//       <!-- /.box-body -->
-//     </div>
-//     <div id="exo-4" class="box box-info">
-//       <div class="box-header with-border">
-//         <h3 class="box-title">4. Faire une calculatrice complète (boutons pour les nombres et pour les opérateurs) En gardant le principe de 2
-//           inputs et de 1 opérateur.</h3>
-//       </div>
-//       <!-- /.box-header -->
-//       <!-- box-body -->
-//       <div class="box-body">
-//         <input type="text" class="form-control">
-//         <span>
-//           <i class="fas fa-plus"></i>
-//         </span>
-//         <input type="text" class="form-control">
-//         <button class="btn">
-//           <i class="fas fa-equals"></i>
-//         </button>
-//         <span id="response4" class="ml-2">?</span>
-
-//         <div id="numbersExo4">
-//           <button class="m-1 btn">
-//             1
-//           </button>
-//           <button class="m-1 btn">
-//             2
-//           </button>
-//           <button class="m-1 btn">
-//             3
-//           </button>
-//           <br>
-//           <button class="m-1 btn">
-//             4
-//           </button>
-//           <button class="m-1 btn">
-//             5
-//           </button>
-//           <button class="m-1 btn">
-//             6
-//           </button>
-//           <br>
-//           <button class="m-1 btn">
-//             7
-//           </button>
-//           <button class="m-1 btn">
-//             8
-//           </button>
-//           <button class="m-1 btn">
-//             9
-//           </button>
-//           <button class="m-1 btn">
-//             0
-//           </button>
-//         </div>
-
-//         <div id="operatorsExo4">
-//           <button class="m-1 btn">
-//             <i class="fas fa-plus"></i>
-//           </button>
-//           <button class="m-1 btn">
-//             <i class="fas fa-minus"></i>
-//           </button>
-//           <button class="m-1 btn">
-//             <i class="fas fa-times"></i>
-//           </button>
-//           <button class="m-1 btn">
-//             <i class="fas fa-divide"></i>
-//           </button>
-//         </div>
-
-//       </div>
-//       <!-- /.box-body -->
-//     </div>
-//   </div>
-
-//   <script src="public/js/main.js" type="module"></script>
-// </body>
-
-// </html>
+                        case "fas fa-divide":
+                            document.querySelector('#exo-4 span i').setAttribute('class', 'fas fa-divide')
+                            operator = true 
+                            break;
+            default:
+                break;
+        }
+    })
+    let operatorButtons2 = document.querySelector('#exo-4 .btn').addEventListener("click", ()=> {
+        let operatorSpan = document.querySelector('#exo-4 .box-body span i');
+        let operator = operatorSpan;
+        console.log(operator)
+        let result;
+        switch(operatorSpan.className){
+            case "fas fa-plus":
+                result = Number(input1.value) + Number(input2.value);
+                break;
+                case "fas fa-minus":
+                    result = Number(input1.value) - Number(input2.value);
+                    break;
+                    case "fas fa-times":
+                result = Number(input1.value) * Number(input2.value);
+                break;
+                case "fas fa-divide":
+                result = Number(input1.value) / Number(input2.value);
+                break;
+        }
+        console.log(result);
+        document.getElementById('response4').innerText = result;
+    })
+        
+    
+    ;
+    
